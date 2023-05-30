@@ -19,8 +19,8 @@
             <td>{{ $materia->id }}</td>
             <td>{{ $materia->nome }}</td>
             <td>{{ $materia->descricao }}</td>
-            <td><a class="btn btn-primary" href="{{ route('materia.editar', $materia->id) }}">Editar</a></td>
-            <td><a class="btn btn-danger" href="{{ route('materia.excluir', $materia->id) }}">Excluir</a></td>
+            <td><a class='btn btn-primary' href='editar/{{$materia->id}}'>Editar</a></td>
+            <td><a class='btn btn-danger' href='excluir/{{$materia->id}}'>Excluir</a></td>
           </tr>
       @endforeach
     </tbody>

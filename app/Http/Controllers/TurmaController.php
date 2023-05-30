@@ -42,11 +42,16 @@ class TurmaController extends Controller
 
     public function atualizar(Request $request, $id)
     {
-        $turma = Turma::find($id);
-        $turma->nome = $request->input('nome');
-        $turma->save();
-        
-        return redirect()->route('turma.listar');
+    $turma = Turma::find($id);
+
+    if (!$turma) {
+        return redirect()->route('turma.listar')->with('error', 'Turma não encontrada.');
+    }
+
+    $turma->nome = $request->input('nome');
+    $turma->save();
+
+    return redirect()->route('turma.listar')->with('success', 'Turma atualizada com sucesso.');
     }
 
     public function excluir($id)

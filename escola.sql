@@ -2,7 +2,7 @@ turma(codigo, nome)
 materia(codigo, nome, descricao, codigo_turma)
 aluno(codigo, nome, cpf, sexo, codigo_turma, codigo_materia)
 professor(codigo, nome, cpf, sexo, data_ativacao, codigo_turma, codigo_materia)
-
+drop table aluno
 Create table turma(
 	id integer Not Null,
 	nome varchar(50) not null
@@ -47,6 +47,7 @@ Create table aluno(
 	nome Varchar(50) not null,
 	cpf Varchar(11) unique,
 	sexo char(1),
+	imagem character varying(45),
 	codigo_turma integer,
 	codigo_materia integer
 );
@@ -69,6 +70,7 @@ Create table professor(
 	id integer Not Null,
 	nome Varchar(50) not null,
 	cpf Varchar(11) unique,
+	imagem character varying(45),
 	sexo char(1),
 	codigo_materia integer
 );

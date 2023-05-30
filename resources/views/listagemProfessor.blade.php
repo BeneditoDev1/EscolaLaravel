@@ -7,6 +7,7 @@
     <thead>
       <tr>
         <th>ID</th>
+        <th>Figura</th>
         <th>Nome</th>
         <th>CPF</th>
         <th>Sexo</th>
@@ -19,6 +20,10 @@
       @foreach($professores as $professor)
           <tr>
             <td>{{$professor->id}}</td>
+            <td>
+              @if ($professor->imagem != "")
+                <img style="width: 50px;" src="/storage/imagens/{{$professor->imagem}}">
+              @endif            </td>
             <td>{{$professor->nome}}</td>
             <td>{{$professor->cpf}}</td>
             <td>{{$professor->sexo}}</td>

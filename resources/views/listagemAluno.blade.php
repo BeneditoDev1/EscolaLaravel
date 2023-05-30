@@ -13,6 +13,8 @@
         <th>Sexo</th>
         <th>Código Turma</th>
         <th>Código Matéria</th>
+        <th>Editar</th>
+        <th>Excluir</th>
         <th></th>
         <th></th>
       </tr>
@@ -21,13 +23,17 @@
     @foreach($alunos as $aluno)
           <tr>
             <td>{{ $aluno->id }}</td>
+            <td>
+              @if ($aluno->imagem != "")
+                <img style="width: 50px;" src="/storage/imagens/{{$aluno->imagem}}">
+              @endif            </td>
             <td>{{ $aluno->nome }}</td>
             <td>{{ $aluno->cpf }}</td>
             <td>{{ $aluno->sexo }}</td>
             <td>{{ $aluno->codigo_turma }}</td>
             <td>{{ $aluno->codigo_materia }}</td>
-            <td><a class="btn btn-primary" href="{{ url('aluno/editar/'.$aluno->id) }}">+</a></td>
-            <td><a class="btn btn-danger" href="{{ url('aluno/excluir/'.$aluno->id) }}">-</a></td>
+            <td><a class='btn btn-primary' href='editar/{{$aluno->id}}'>Editar</a></td>
+            <td><a class='btn btn-danger' href='excluir/{{$aluno->id}}'>Excluir</a></td>
           </tr>
       @endforeach
     </tbody>

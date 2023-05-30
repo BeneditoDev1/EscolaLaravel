@@ -17,8 +17,8 @@
           <tr>
             <td>{{ $turma->id }}</td>
             <td>{{ $turma->nome }}</td>
-            <td><a class="btn btn-primary" href="{{ route('turma.editar', $turma->id) }}">+</a></td>
-            <td><a class="btn btn-danger" href="{{ route('turma.excluir', $turma->id) }}">-</a></td>
+            <td><a class='btn btn-primary' href='editar/{{$turma->id}}'>Editar</a></td>
+            <td><a class='btn btn-danger' href='excluir/{{$turma->id}}'>Excluir</a></td>
           </tr>
       @endforeach
     </tbody>

@@ -29,6 +29,16 @@ class AlunoController extends Controller
         } else {
             $aluno = Aluno::find($request->input('id'));
         }
+        if ($request->hasFile('arquivo')) {
+            $file = $request->file('arquivo');
+            $upload = $file->store('public/imagens');
+            $upload = explode("/", $upload);
+            $tamanho = sizeof($upload);
+            if ($aluno->imagem != "") {
+              Storage::delete("public/imagens/".$aluno->imagem);
+            }
+            $aluno->imagem = $upload[$tamanho-1];
+        }
 
         $aluno->nome = $request->input('nome');
         $aluno->cpf = $request->input('cpf');
@@ -46,9 +56,30 @@ class AlunoController extends Controller
         return view('frmAluno', compact('aluno'));
     }
 
+    public function atualizar(Request $request, $id)
+    {
+    $aluno = Aluno::find($id);
+
+    if (!$aluno) {
+        return redirect()->route('aluno.listar')->with('error', 'Aluno não encontrado.');
+    }
+
+    $aluno->nome = $request->input('nome');
+    $aluno->cpf = $request->input('cpf');
+    $aluno->sexo = $request->input('sexo');
+    $aluno->codigo_turma = $request->input('codigo_turma');
+    $aluno->codigo_materia = $request->input('codigo_materia');
+    $aluno->save();
+
+    return redirect()->route('aluno.listar')->with('success', 'Aluno atualizado com sucesso.');
+    }
+
     public function excluir($id)
     {
         $aluno = Aluno::find($id);
+        if ($aluno->imagem != "") {
+            Storage::delete("public/imagens/".$aluno->imagem);
+          }
         $aluno->delete();
 
         return redirect('aluno/listar');

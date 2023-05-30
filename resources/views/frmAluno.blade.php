@@ -6,6 +6,10 @@
   <form action="{{ $aluno->id ? route('aluno.atualizar', $aluno->id) : route('aluno.salvar') }}" method="POST">
     @csrf
 
+    @if($aluno->id)
+      @method('PUT')
+    @endif
+
     <input type="hidden" name="id" value="{{ $aluno->id }}">
 
     <div class="form-group">
@@ -35,6 +39,11 @@
     <div class="form-group">
       <label for="codigo_materia">Código da Matéria:</label>
       <input type="text" class="form-control" name="codigo_materia" value="{{ $aluno->codigo_materia }}" required>
+    </div>
+
+    <div class="form-group">
+      <label for="arquivo">Imagem:</label>
+      <input type="file" class="form-control" name="arquivo">
     </div>
 
       <button type="submit" class="btn btn-primary">Salvar</button>

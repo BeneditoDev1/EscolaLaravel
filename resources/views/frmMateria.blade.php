@@ -5,6 +5,9 @@
 
   <form action="{{ $materia->id ? route('materia.atualizar', $materia->id) : route('materia.salvar')  }}" method="POST">
     @csrf
+    @if($materia->id)
+      @method('PUT')
+    @endif
 
     <input type="hidden" name="id" value="{{ $materia->id }}">
 

@@ -34,6 +34,11 @@
       <input type="number" class="form-control" id="codigo_materia" name="codigo_materia" value="{{ $professor->codigo_materia }}" required>
     </div>
 
+    <div class="form-group">
+      <label for="arquivo">Imagem:</label>
+      <input type="file" class="form-control" name="arquivo">
+    </div>
+
       <button type="submit" class="btn btn-primary">Salvar</button>
       <a href="{{ route('professor.listar') }}" class="btn btn-secondary">Cancelar</a>
   </form>

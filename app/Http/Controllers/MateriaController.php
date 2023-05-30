@@ -35,6 +35,21 @@ class MateriaController extends Controller
         return view('frmMateria', compact('materia'));
     }
 
+    public function atualizar(Request $request, $id)
+    {
+    $materia = Materia::find($id);
+
+    if (!$materia) {
+        return redirect()->route('materia.listar')->with('error', 'Materia não encontrada.');
+    }
+
+    $materia->nome = $request->input('nome');
+    $materia->descricao = $request->input('descricao');
+    $materia->save();
+
+    return redirect()->route('materia.listar')->with('success', 'Materia atualizada com sucesso.');
+    }
+
     public function excluir($id)
     {
         $materia = Materia::find($id);
