@@ -3,7 +3,7 @@
 @section('conteudo')
   <h1>Formulário de Turma</h1>
 
-  <form action="{{ $action }}" method="POST">
+  <form action="{{  $turma->id ? route('turma.atualizar', $turma->id) : route('turma.salvar') }}" method="POST">
     @csrf
 
     <input type="hidden" name="id" value="{{ $turma->id }}">
@@ -13,8 +13,7 @@
       <input type="text" class="form-control" name="nome" value="{{ $turma->nome }}" required>
     </div>
 
-    <div class="form-group">
-      <button type="submit" class="btn btn-primary">Salvar</button>
-    </div>
+    <button type="submit" class="btn btn-primary">Salvar</button>
+    <a href="{{ route('turma.listar') }}" class="btn btn-secondary">Cancelar</a>
   </form>
 @endsection

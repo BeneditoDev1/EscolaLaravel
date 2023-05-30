@@ -20,9 +20,13 @@
       <input type="text" class="form-control" id="cpf" name="cpf" value="{{ $professor->cpf }}" required>
     </div>
 
-    <div class="mb-3">
-      <label for="sexo" class="form-label">Sexo</label>
-      <input type="text" class="form-control" id="sexo" name="sexo" value="{{ $professor->sexo }}" required>
+    <div class="form-group">
+      <label for="sexo">Sexo:</label>
+      <select name="sexo" class="form-control" required>
+        <option value="">Selecione</option>
+        <option value="M" @if ($professor->sexo == 'M') selected @endif>Masculino</option>
+        <option value="F" @if ($professor->sexo == 'F') selected @endif>Feminino</option>
+      </select>
     </div>
 
     <div class="mb-3">
@@ -30,7 +34,7 @@
       <input type="number" class="form-control" id="codigo_materia" name="codigo_materia" value="{{ $professor->codigo_materia }}" required>
     </div>
 
-    <button type="submit" class="btn btn-primary">Salvar</button>
-    <a href="{{ route('professor.listar') }}" class="btn btn-secondary">Cancelar</a>
+      <button type="submit" class="btn btn-primary">Salvar</button>
+      <a href="{{ route('professor.listar') }}" class="btn btn-secondary">Cancelar</a>
   </form>
 @endsection

@@ -15,12 +15,19 @@ class TurmaController extends Controller
 
     public function novo()
     {
-        return view('frmTurma');
+        $turma = new Turma();
+        $turma->id = 0;
+        return view('frmTurmas', compact('turma'));
     }
 
     public function salvar(Request $request)
     {
-        $turma = new Turma();
+        if ($request->input('id') == 0) {
+            $turma = new Turma();
+        } else {
+            $turma = Turma::find($request->input('id'));
+        }
+
         $turma->nome = $request->input('nome');
         $turma->save();
         
@@ -30,7 +37,7 @@ class TurmaController extends Controller
     public function editar($id)
     {
         $turma = Turma::find($id);
-        return view('frmTurma', compact('turma'));
+        return view('frmTurmas', compact('turma'));
     }
 
     public function atualizar(Request $request, $id)

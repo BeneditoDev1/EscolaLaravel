@@ -28,21 +28,25 @@ Route::get('/aluno/novo', [AlunoController::class, 'novo'])->name('aluno.novo');
 Route::post('/aluno/salvar', [AlunoController::class, 'salvar'])->name('aluno.salvar');
 Route::get('/aluno/editar/{id}', [AlunoController::class, 'editar'])->name('aluno.editar');
 Route::get('/aluno/excluir/{id}', [AlunoController::class, 'excluir'])->name('aluno.excluir');
+Route::put('/aluno/editar/{id}', 'AlunoController@atualizar')->name('aluno.atualizar');
 
 Route::get('/materia/listar', [MateriaController::class, 'listar'])->name('materia.listar');
 Route::get('/materia/novo', [MateriaController::class, 'novo'])->name('materia.novo');
 Route::post('/materia/salvar', [MateriaController::class, 'salvar'])->name('materia.salvar');
 Route::get('/materia/editar/{id}', [MateriaController::class, 'editar'])->name('materia.editar');
 Route::get('/materia/excluir/{id}', [MateriaController::class, 'excluir'])->name('materia.excluir');
+Route::put('/materia/excluir/{id}', 'MateriaController@atualizar')->name('materia.atualizar');
 
 Route::get('/professor/listar', [ProfessorController::class, 'listar'])->name('professor.listar');
 Route::get('/professor/novo', [ProfessorController::class, 'novo'])->name('professor.novo');
 Route::post('/professor/salvar', [ProfessorController::class, 'salvar'])->name('professor.salvar');
 Route::get('/professor/editar/{id}', [ProfessorController::class, 'editar'])->name('professor.editar');
 Route::get('/professor/excluir/{id}', [ProfessorController::class, 'excluir'])->name('professor.excluir');
+Route::put('/professor/editar/{id}', 'ProfessorController@atualizar')->name('professor.atualizar');
 
 Route::get('/turma/listar', [TurmaController::class, 'listar'])->name('turma.listar');
 Route::get('/turma/novo', [TurmaController::class, 'novo'])->name('turma.novo');
 Route::post('/turma/salvar', [TurmaController::class, 'salvar'])->name('turma.salvar');
 Route::get('/turma/editar/{id}', [TurmaController::class, 'editar'])->name('turma.editar');
 Route::get('/turma/excluir/{id}', [TurmaController::class, 'excluir'])->name('turma.excluir');
+Route::put('/turma/editar/{id}', 'TurmaController@atualizar')->name('turma.atualizar');

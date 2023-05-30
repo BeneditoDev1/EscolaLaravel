@@ -3,7 +3,7 @@
 @section('conteudo')
   <h1>Formulário de Matéria</h1>
 
-  <form action="{{ $action }}" method="POST">
+  <form action="{{ $materia->id ? route('materia.atualizar', $materia->id) : route('materia.salvar')  }}" method="POST">
     @csrf
 
     <input type="hidden" name="id" value="{{ $materia->id }}">
@@ -18,8 +18,7 @@
       <textarea class="form-control" name="descricao" rows="3" required>{{ $materia->descricao }}</textarea>
     </div>
 
-    <div class="form-group">
-      <button type="submit" class="btn btn-primary">Salvar</button>
-    </div>
+    <button type="submit" class="btn btn-primary">Salvar</button>
+    <a href="{{ route('materia.listar') }}" class="btn btn-secondary">Cancelar</a>
   </form>
 @endsection
