@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 
+use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\AlunoController;
 use App\Http\Controllers\MateriaController;
 use App\Http\Controllers\ProfessorController;
@@ -19,9 +20,7 @@ use App\Http\Controllers\TurmaController;
 |
 */
 
-Route::get('/', function () {
-    return view('index');
-});
+Route::middleware('auth')->group(function () {
 
 Route::get('/aluno/listar', [AlunoController::class, 'listar'])->name('aluno.listar');
 Route::get('/aluno/novo', [AlunoController::class, 'novo'])->name('aluno.novo');
@@ -52,3 +51,20 @@ Route::get('/turma/editar/{id}', [TurmaController::class, 'editar'])->name('turm
 Route::put('/turma/editar/{id}', [TurmaController::class, 'atualizar'])->name('turma.atualizar');
 Route::post('/turma/editar/{id}', [TurmaController::class, 'editar'])->name('turma.editar');
 Route::get('/turma/excluir/{id}', [TurmaController::class, 'excluir'])->name('turma.excluir');
+
+
+Route::get('/', function () {
+    return view('index');
+    });
+
+});
+
+Route::middleware([
+    'auth:sanctum',
+    config('jetstream.auth_session'),
+    'verified'
+])->group(function () {
+    Route::get('/dashboard', function () {
+        return view('dashboard');
+    })->name('dashboard');
+});
