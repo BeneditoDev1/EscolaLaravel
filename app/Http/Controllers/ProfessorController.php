@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Professor;
 use App\Models\Materia;
+use Illuminate\Support\Facades\Storage;
 
 class ProfessorController extends Controller
 {

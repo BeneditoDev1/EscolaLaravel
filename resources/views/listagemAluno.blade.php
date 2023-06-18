@@ -7,7 +7,7 @@
     <thead>
       <tr>
       <th>ID</th>
-        <th>Figura</th>
+        <th>Imagem</th>
         <th>Nome</th>
         <th>CPF</th>
         <th>Sexo</th>
@@ -15,18 +15,16 @@
         <th>Código Matéria</th>
         <th>Editar</th>
         <th>Excluir</th>
-        <th></th>
-        <th></th>
       </tr>
     </thead>
     <tbody> 
     @foreach($alunos as $aluno)
           <tr>
-            <td>{{ $aluno->id }}</td>
+            <td>{{$aluno->id }}</td>
             <td>
-              @if ($aluno->imagem != "")
-                <img style="width: 50px;" src="/storage/imagens/{{$aluno->imagem}}">
-              @endif            </td>
+            @if ($aluno->imagem != "")
+                <img style="width: 50px;" src="{{ asset('storage/imagens/' . $aluno->imagem) }}">
+              @endif
             <td>{{ $aluno->nome }}</td>
             <td>{{ $aluno->cpf }}</td>
             <td>{{ $aluno->sexo }}</td>

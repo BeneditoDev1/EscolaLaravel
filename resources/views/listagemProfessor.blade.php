@@ -7,13 +7,13 @@
     <thead>
       <tr>
         <th>ID</th>
-        <th>Figura</th>
+        <th>Imagem</th>
         <th>Nome</th>
         <th>CPF</th>
         <th>Sexo</th>
         <th>Código Matéria</th>
-        <th></th>
-        <th></th>
+        <th>Editar</th>
+        <th>Excluir</th>
       </tr>
     </thead>
     <tbody> 
@@ -22,7 +22,7 @@
             <td>{{$professor->id}}</td>
             <td>
               @if ($professor->imagem != "")
-                <img style="width: 50px;" src="/storage/imagens/{{$professor->imagem}}">
+                <img style="width: 70px;" src="/storage/imagens/{{$professor->imagem}}">
               @endif            </td>
             <td>{{$professor->nome}}</td>
             <td>{{$professor->cpf}}</td>

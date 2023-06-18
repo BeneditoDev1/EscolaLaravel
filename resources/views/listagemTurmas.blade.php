@@ -8,8 +8,8 @@
       <tr>
         <th>ID</th>
         <th>Nome</th>
-        <th></th>
-        <th></th>
+        <th>Editar</th>
+        <th>Excluir</th>
       </tr>
     </thead>
     <tbody> 

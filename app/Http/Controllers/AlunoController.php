@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Models\Aluno;
 use App\Models\Turma;
 use App\Models\Materia;
+use Illuminate\Support\Facades\Storage;
 
 class AlunoController extends Controller
 {
@@ -23,32 +24,33 @@ class AlunoController extends Controller
     }
 
     public function salvar(Request $request)
-    {
-        if ($request->input('id') == 0) {
-            $aluno = new Aluno();
-        } else {
-            $aluno = Aluno::find($request->input('id'));
-        }
-        if ($request->hasFile('arquivo')) {
-            $file = $request->file('arquivo');
-            $upload = $file->store('public/imagens');
-            $upload = explode("/", $upload);
-            $tamanho = sizeof($upload);
-            if ($aluno->imagem != "") {
-              Storage::delete("public/imagens/".$aluno->imagem);
-            }
-            $aluno->imagem = $upload[$tamanho-1];
-        }
-
-        $aluno->nome = $request->input('nome');
-        $aluno->cpf = $request->input('cpf');
-        $aluno->sexo = $request->input('sexo');
-        $aluno->codigo_turma = $request->input('codigo_turma');
-        $aluno->codigo_materia = $request->input('codigo_materia');
-        $aluno->save();
-
-        return redirect('aluno/listar');
+{
+    if ($request->input('id') == 0) {
+        $aluno = new Aluno();
+    } else {
+        $aluno = Aluno::find($request->input('id'));
     }
+
+    if ($request->hasFile('arquivo')) {
+        $file = $request->file('arquivo');
+        $upload = $file->store('public/imagens');
+        $upload = explode("/", $upload);
+        $tamanho = sizeof($upload);
+        if ($aluno->imagem != "") {
+            Storage::delete("public/imagens/".$aluno->imagem);
+        }
+        $aluno->imagem = $upload[$tamanho-1];
+    }
+
+    $aluno->nome = $request->input('nome');
+    $aluno->cpf = $request->input('cpf');
+    $aluno->sexo = $request->input('sexo');
+    $aluno->codigo_turma = $request->input('codigo_turma');
+    $aluno->codigo_materia = $request->input('codigo_materia');
+    $aluno->save();
+
+    return redirect('aluno/listar');
+}
 
     public function editar($id)
     {

@@ -3,7 +3,7 @@
 @section('conteudo')
   <h1>Formulário de Professor</h1>
 
-  <form action="{{ $professor->id ? route('professor.atualizar', $professor->id) : route('professor.salvar') }}" method="POST">
+  <form action="{{ $professor->id ? route('professor.atualizar', $professor->id) : route('professor.salvar') }}" method="POST" enctype="multipart/form-data">
     @csrf
 
     @if($professor->id)
