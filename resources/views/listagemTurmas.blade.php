@@ -3,6 +3,7 @@
 @section('conteudo')
   <h1>Listagem de Turmas</h1>
   <a href="{{ route('turma.novo') }}" class="btn btn-primary">Nova Turma</a>
+  <a href="relatorio" class="btn btn-primary">Relatório</a>
   <table class="table table-bordered table-striped">
     <thead>
       <tr>

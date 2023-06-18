@@ -14,6 +14,7 @@
         <th>Código Matéria</th>
         <th>Editar</th>
         <th>Excluir</th>
+        <th>Mensagem</th>
       </tr>
     </thead>
     <tbody> 
@@ -22,7 +23,7 @@
             <td>{{$professor->id}}</td>
             <td>
               @if ($professor->imagem != "")
-                <img style="width: 70px;" src="/storage/imagens/{{$professor->imagem}}">
+                <img style="width: 50px;" src="/storage/imagens/{{$professor->imagem}}">
               @endif            </td>
             <td>{{$professor->nome}}</td>
             <td>{{$professor->cpf}}</td>
@@ -30,6 +31,7 @@
             <td>{{$professor->codigo_materia}}</td>
             <td><a class='btn btn-primary' href='editar/{{$professor->id}}'>Editar</a></td>
             <td><a class='btn btn-danger' href='excluir/{{$professor->id}}'>Excluir</a></td>
+            <td><a class='btn btn-primary' href='mensagem/{{$professor->id}}'>Mensagem</a></td>
           </tr>
       @endforeach
 

@@ -1,4 +1,4 @@
-  @extends('template')
+@extends('template')
 
 @section('conteudo')
   <h1>Listagem de Alunos</h1>
@@ -6,7 +6,7 @@
   <table class="table table-bordered table-striped">
     <thead>
       <tr>
-      <th>ID</th>
+        <th>ID</th>
         <th>Imagem</th>
         <th>Nome</th>
         <th>CPF</th>
@@ -18,21 +18,22 @@
       </tr>
     </thead>
     <tbody> 
-    @foreach($alunos as $aluno)
-          <tr>
-            <td>{{$aluno->id }}</td>
-            <td>
+      @foreach($alunos as $aluno)
+        <tr>
+          <td>{{ $aluno->id }}</td>
+          <td>
             @if ($aluno->imagem != "")
-                <img style="width: 50px;" src="{{ asset('storage/imagens/' . $aluno->imagem) }}">
-              @endif
-            <td>{{ $aluno->nome }}</td>
-            <td>{{ $aluno->cpf }}</td>
-            <td>{{ $aluno->sexo }}</td>
-            <td>{{ $aluno->codigo_turma }}</td>
-            <td>{{ $aluno->codigo_materia }}</td>
-            <td><a class='btn btn-primary' href='editar/{{$aluno->id}}'>Editar</a></td>
-            <td><a class='btn btn-danger' href='excluir/{{$aluno->id}}'>Excluir</a></td>
-          </tr>
+              <img style="width: 50px;" src="{{ asset('storage/imagens/' . $aluno->imagem) }}">
+            @endif
+          </td>
+          <td>{{ $aluno->nome }}</td>
+          <td>{{ $aluno->cpf }}</td>
+          <td>{{ $aluno->sexo }}</td>
+          <td>{{ $aluno->codigo_turma }}</td>
+          <td>{{ $aluno->codigo_materia }}</td>
+          <td><a class="btn btn-primary" href="editar/{{ $aluno->id }}">Editar</a></td>
+          <td><a class="btn btn-danger" href="excluir/{{ $aluno->id }}">Excluir</a></td>
+        </tr>
       @endforeach
     </tbody>
   </table>

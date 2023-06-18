@@ -38,7 +38,7 @@ class ProfessorController extends Controller
             if ($professor->imagem != "") {
               Storage::delete("public/imagens/".$professor->imagem);
             }
-            $aluno->imagem = $upload[$tamanho-1];
+            $professor->imagem = $upload[$tamanho-1];
         }
 
         $professor->nome = $request->input('nome');

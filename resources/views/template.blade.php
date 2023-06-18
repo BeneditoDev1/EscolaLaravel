@@ -186,8 +186,6 @@
   </div>
 </nav>
 
-<h1>Projeto feito em Laravel</h1>
-
 <main class="container">
   <div class="bg-body-tertiary p-5 rounded">
     @if (session('msg') )

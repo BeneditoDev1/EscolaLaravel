@@ -4,12 +4,12 @@
   <h1>Formulário de Professor</h1>
 
   <form action="{{ $professor->id ? route('professor.atualizar', $professor->id) : route('professor.salvar') }}" method="POST" enctype="multipart/form-data">
-    @csrf
+    
 
     @if($professor->id)
       @method('PUT')
     @endif
-
+    @csrf
     <div class="mb-3">
       <label for="nome" class="form-label">Nome</label>
       <input type="text" class="form-control" id="nome" name="nome" value="{{ $professor->nome }}" required>
@@ -36,7 +36,7 @@
 
     <div class="form-group">
       <label for="arquivo">Imagem:</label>
-      <input type="file" class="form-control" name="arquivo">
+      <input type="file" class="form-control" id="arquivo" name="arquivo" accept="image/*">
     </div>
 
       <button type="submit" class="btn btn-primary">Salvar</button>

@@ -3,6 +3,7 @@
 @section('conteudo')
   <h1>Listagem de Matérias</h1>
   <a href="{{ route('materia.novo') }}" class="btn btn-primary">Nova Matéria</a>
+  <a href="relatorio" class="btn btn-primary">Relatório</a>
   <table class="table table-bordered table-striped">
     <thead>
       <tr>

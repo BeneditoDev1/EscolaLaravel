@@ -4,17 +4,12 @@
   <h1>Formulário de Aluno</h1>
 
   <form action="{{ $aluno->id ? route('aluno.atualizar', $aluno->id) : route('aluno.salvar') }}" method="POST" enctype="multipart/form-data">
-    @csrf
+    
 
     @if($aluno->id)
       @method('PUT')
     @endif
-
-    @if ($aluno->imagem != "")
-      <img style="width: 200px;height:200px;object-fit:cover" src="/storage/imagens/{{$aluno->imagem}}">
-    @endif
-    <input type="hidden" name="id" value="{{ $aluno->id }}">
-
+    @csrf
     <div class="form-group">
       <label for="nome">Nome:</label>
       <input type="text" class="form-control" name="nome" value="{{ $aluno->nome }}" required>
@@ -46,10 +41,10 @@
 
     <div class="form-group">
       <label for="arquivo">Imagem:</label>
-      <input type="file" class="form-control" name="arquivo" accept="image/*">
+      <input type="file" class="form-control" id="arquivo" name="arquivo" accept="image/*">
     </div>
 
-      <button type="submit" class="btn btn-primary">Salvar</button>
-      <a href="{{ route('aluno.listar') }}" class="btn btn-secondary">Cancelar</a>
+    <button type="submit" class="btn btn-primary">Salvar</button>
+    <a href="{{ route('aluno.listar') }}" class="btn btn-secondary">Cancelar</a>
   </form>
 @endsection
