@@ -14,7 +14,6 @@
         <th>Código Matéria</th>
         <th>Editar</th>
         <th>Excluir</th>
-        <th>Mensagem</th>
       </tr>
     </thead>
     <tbody> 
@@ -31,7 +30,6 @@
             <td>{{$professor->codigo_materia}}</td>
             <td><a class='btn btn-primary' href='editar/{{$professor->id}}'>Editar</a></td>
             <td><a class='btn btn-danger' href='excluir/{{$professor->id}}'>Excluir</a></td>
-            <td><a class='btn btn-primary' href='mensagem/{{$professor->id}}'>Mensagem</a></td>
           </tr>
       @endforeach
 

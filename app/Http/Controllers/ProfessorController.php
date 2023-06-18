@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Models\Professor;
 use App\Models\Materia;
 use Illuminate\Support\Facades\Storage;
+use App\Mail\Contact;
 
 class ProfessorController extends Controller
 {
@@ -83,4 +84,12 @@ class ProfessorController extends Controller
         $professor->delete();
         return redirect()->route('professor.listar');
     }
+
+    function enviarMensagem(Request $request) {
+        $id = $request->input('id');
+        $mensagem = $request->input('contact');
+        $professor = Professor::find($id) ;
+        Mail::to($professor->email)->send(new ProfessorMensagem($professor, $mensagem));
+        return redirect('professor/listar');
+      }
 }

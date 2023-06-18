@@ -52,6 +52,8 @@ Route::put('/turma/editar/{id}', [TurmaController::class, 'atualizar'])->name('t
 Route::post('/turma/editar/{id}', [TurmaController::class, 'editar'])->name('turma.editar');
 Route::get('/turma/excluir/{id}', [TurmaController::class, 'excluir'])->name('turma.excluir');
 
+Route::get('/contact', [ProfessorController::class, 'index'])->name('contact.index');
+Route::post('/contact', [ProfessorController::class, 'store'])->name('contact.store');
 
 Route::get('/', function () {
     return view('index');
