@@ -7,6 +7,7 @@ use App\Models\Aluno;
 use App\Models\Turma;
 use App\Models\Materia;
 use Illuminate\Support\Facades\Storage;
+use Barryvdh\DomPDF\Facade\Pdf;
 
 class AlunoController extends Controller
 {
@@ -86,4 +87,10 @@ class AlunoController extends Controller
 
         return redirect('aluno/listar');
     }
+
+    function relatorio() {
+        $alunos = Aluno::with('turma', 'materia')->orderBy('id')->get();
+        $pdf = Pdf::loadView('relatorioAluno', compact('alunos'));
+        return $pdf->download('alunos.pdf');
+      }
 }

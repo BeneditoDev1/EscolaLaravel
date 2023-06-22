@@ -4,6 +4,9 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Materia;
+use App\Models\Aluno;
+use App\Models\Professor;
+use Barryvdh\DomPDF\Facade\Pdf;
 
 class MateriaController extends Controller
 {
@@ -56,4 +59,10 @@ class MateriaController extends Controller
         $materia->delete();
         return redirect()->route('materia.listar');
     }
+
+    function relatorio() {
+        $materias = Materia::orderBy('id')->get();
+        $pdf = Pdf::loadView('relatorioMateria', compact('materias'));
+        return $pdf->download('materias.pdf');
+      }
 }

@@ -15,10 +15,11 @@
       <input type="text" class="form-control" name="nome" value="{{ $aluno->nome }}" required>
     </div>
 
-    <div class="form-group">
-      <label for="cpf">CPF:</label>
-      <input type="text" class="form-control" name="cpf" value="{{ $aluno->cpf }}" required>
-    </div>
+    <div class="mb-3">
+  <label for="cpf" class="form-label">CPF</label>
+  <input type="text" class="form-control" id="cpf" name="cpf" value="{{ $aluno->cpf }}" required maxlength="11" oninput="validateCPF(this)">
+  <div id="cpf-error" class="invalid-feedback" style="display: none;">Digite 11 caracteres para o CPF.</div>
+  </div>
 
     <div class="form-group">
       <label for="sexo">Sexo:</label>

@@ -3,6 +3,7 @@
 @section('conteudo')
   <h1>Listagem de Professores</h1>
   <a href="novo" class="btn btn-primary">Novo Professor</a>
+  <a href="relatorio" class="btn btn-primary">Relatório</a>
   <table class="table table-bordered table-striped">
     <thead>
       <tr>

@@ -6,7 +6,7 @@ use Illuminate\Http\Request;
 use App\Models\Professor;
 use App\Models\Materia;
 use Illuminate\Support\Facades\Storage;
-use App\Mail\Contact;
+use Barryvdh\DomPDF\Facade\Pdf;
 
 class ProfessorController extends Controller
 {
@@ -91,5 +91,11 @@ class ProfessorController extends Controller
         $professor = Professor::find($id) ;
         Mail::to($professor->email)->send(new ProfessorMensagem($professor, $mensagem));
         return redirect('professor/listar');
+      }
+
+      function relatorio() {
+        $professores = Professor::with('materia')->orderBy('id')->get();
+        $pdf = Pdf::loadView('relatorioProfessor', compact('professores'));
+        return $pdf->download('professor.pdf');
       }
 }

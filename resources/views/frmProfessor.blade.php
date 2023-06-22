@@ -16,9 +16,10 @@
     </div>
 
     <div class="mb-3">
-      <label for="cpf" class="form-label">CPF</label>
-      <input type="text" class="form-control" id="cpf" name="cpf" value="{{ $professor->cpf }}" required>
-    </div>
+  <label for="cpf" class="form-label">CPF</label>
+  <input type="text" class="form-control" id="cpf" name="cpf" value="{{ $professor->cpf }}" required maxlength="11" oninput="validateCPF(this)">
+  <div id="cpf-error" class="invalid-feedback" style="display: none;">Digite 11 caracteres para o CPF.</div>
+  </div>
 
     <div class="form-group">
       <label for="sexo">Sexo:</label>
@@ -29,9 +30,9 @@
       </select>
     </div>
 
-    <div class="mb-3">
-      <label for="codigo_materia" class="form-label">Código Matéria</label>
-      <input type="number" class="form-control" id="codigo_materia" name="codigo_materia" value="{{ $professor->codigo_materia }}" required>
+    <div class="form-group">
+      <label for="codigo_materia">Código da Matéria:</label>
+      <input type="text" class="form-control" name="codigo_materia" value="{{ $professor->codigo_materia }}" required>
     </div>
 
     <div class="form-group">

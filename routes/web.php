@@ -28,6 +28,7 @@ Route::post('/aluno/salvar', [AlunoController::class, 'salvar'])->name('aluno.sa
 Route::get('/aluno/editar/{id}', [AlunoController::class, 'editar'])->name('aluno.editar');
 Route::put('/aluno/editar/{id}', [AlunoController::class, 'atualizar'])->name('aluno.atualizar'); 
 Route::get('/aluno/excluir/{id}', [AlunoController::class, 'excluir'])->name('aluno.excluir');
+Route::get('/aluno/relatorio', [AlunoController::class, 'relatorio']);
 
 Route::get('/materia/listar', [MateriaController::class, 'listar'])->name('materia.listar');
 Route::get('/materia/novo', [MateriaController::class, 'novo'])->name('materia.novo');
@@ -35,6 +36,7 @@ Route::post('/materia/salvar', [MateriaController::class, 'salvar'])->name('mate
 Route::get('/materia/editar/{id}', [MateriaController::class, 'editar'])->name('materia.editar');
 Route::put('/materia/editar/{id}', [MateriaController::class, 'atualizar'])->name('materia.atualizar'); 
 Route::get('/materia/excluir/{id}', [MateriaController::class, 'excluir'])->name('materia.excluir');
+Route::get('/materia/relatorio', [MateriaController::class, 'relatorio']);
 
 Route::get('/professor/listar', [ProfessorController::class, 'listar'])->name('professor.listar');
 Route::get('/professor/novo', [ProfessorController::class, 'novo'])->name('professor.novo');
@@ -42,6 +44,7 @@ Route::post('/professor/salvar', [ProfessorController::class, 'salvar'])->name('
 Route::get('/professor/editar/{id}', [ProfessorController::class, 'editar'])->name('professor.editar');
 Route::put('/professor/editar/{id}', [ProfessorController::class, 'atualizar'])->name('professor.atualizar'); 
 Route::get('/professor/excluir/{id}', [ProfessorController::class, 'excluir'])->name('professor.excluir');
+Route::get('/professor/relatorio', [ProfessorController::class, 'relatorio']);
 
 
 Route::get('/turma/listar', [TurmaController::class, 'listar'])->name('turma.listar');
@@ -52,8 +55,6 @@ Route::put('/turma/editar/{id}', [TurmaController::class, 'atualizar'])->name('t
 Route::post('/turma/editar/{id}', [TurmaController::class, 'editar'])->name('turma.editar');
 Route::get('/turma/excluir/{id}', [TurmaController::class, 'excluir'])->name('turma.excluir');
 
-Route::get('/contact', [ProfessorController::class, 'index'])->name('contact.index');
-Route::post('/contact', [ProfessorController::class, 'store'])->name('contact.store');
 
 Route::get('/', function () {
     return view('index');
