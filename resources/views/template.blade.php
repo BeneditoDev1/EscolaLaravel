@@ -103,7 +103,28 @@
       body {
         min-height: 75rem;
         padding-top: 4.5rem;
+        background-color: rgb(5, 93, 245);
       }
+
+      .navbar-collapse {
+      text-align: center;
+      }
+
+      .navbar-collapse ul {
+      display: inline-block;
+      vertical-align: middle;
+      float: none;
+      }
+
+      .navbar-collapse li {
+      display: inline-block;
+      }
+
+      .navbar-collapse li a {
+      display: inline-block;
+      vertical-align: middle;
+      }
+      
     </style>
 
 
